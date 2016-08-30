@@ -361,6 +361,7 @@ static ExtensionType extension_types[] = {
 	{ ".PNG",  FILE_TYPE_PNG },
 	{ ".MP3",  FILE_TYPE_MP3 },
 	{ ".VPK",  FILE_TYPE_VPK },
+	{ ".MP4",  FILE_TYPE_MP4 },
 	{ ".ZIP",  FILE_TYPE_ZIP },
 };
 
