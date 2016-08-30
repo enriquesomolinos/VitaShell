@@ -276,6 +276,11 @@ int handleFile(char *file, FileListEntry *entry) {
 			initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_YESNO, language_container[INSTALL_QUESTION]);
 			dialog_step = DIALOG_STEP_INSTALL_QUESTION;
 			break;
+		case FILE_TYPE_MP4:
+			//TODO detect if its a real mp4 file or a vpk modified file
+			initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_YESNO, language_container[INSTALL_QUESTION]);
+			dialog_step = DIALOG_STEP_INSTALL_QUESTION;
+			break;
 			
 		case FILE_TYPE_ZIP:
 			res = archiveOpen(file);
