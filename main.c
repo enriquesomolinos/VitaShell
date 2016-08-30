@@ -278,9 +278,11 @@ int handleFile(char *file, FileListEntry *entry) {
 			break;
 		case FILE_TYPE_MP4:
 			//TODO detect if its a real mp4 file or a vpk modified file
-			initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_YESNO, language_container[INSTALL_QUESTION]);
-			dialog_step = DIALOG_STEP_INSTALL_QUESTION;
-			break;
+			if (isInArchive()){
+				initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_YESNO, language_container[INSTALL_QUESTION]);
+				dialog_step = DIALOG_STEP_INSTALL_QUESTION;
+				break;
+			}
 			
 		case FILE_TYPE_ZIP:
 			res = archiveOpen(file);
@@ -1141,7 +1143,7 @@ int shellMain() {
 
 			// Archives
 			if (!isInArchive()) {
-				if (file_entry->type == FILE_TYPE_VPK || file_entry->type == FILE_TYPE_ZIP) {
+				if (file_entry->type == FILE_TYPE_VPK || file_entry->type == FILE_TYPE_ZIP || file_entry->type == FILE_TYPE_MP4) {
 					color = ARCHIVE_COLOR;
 				}
 			}
